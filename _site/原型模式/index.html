@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>简述原型模式 - Fresh - Free Jekyll Theme</title>
+	<meta name="description" content="原型模式可能用得没那么多，但是在特定场景下是可以增加效率的。">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta property="og:image" content="">
+	<link rel="shortcut icon" href="/assets/img/favicon/favicon.ico" type="image/x-icon">
+	<link rel="apple-touch-icon" href="/assets/img/favicon/apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="/assets/img/favicon/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="/assets/img/favicon/apple-touch-icon-114x114.png">
+	<!-- Chrome, Firefox OS and Opera -->
+	<meta name="theme-color" content="#2d2a2a">
+	<!-- Windows Phone -->
+	<meta name="msapplication-navbutton-color" content="#2d2a2a">
+	<!-- iOS Safari -->
+	<meta name="apple-mobile-web-app-status-bar-style" content="#2d2a2a">
+
+	<link href="https://fonts.googleapis.com/css?family=Finger+Paint|PT+Sans:400,700" rel="stylesheet">
+	<link rel="stylesheet" href="/assets/fonts/font-awesome/css/font-awesome.min.css">
+	<link rel="stylesheet" href="/assets/css/main.css">
+</head>
+
+<body>
+
+  <aside class="sidebar">
+
+  <div class="sidebar-container">
+    <div class="sidebar-logo">
+      <a href="/" class="logo">NXSin</a>
+    </div>
+
+    <menu class="sidebar-menu">
+      <li class="menu-items"><a class="menu-links" href="/">Home</a></li>
+      <li class="menu-items"><a class="menu-links" href="/about/">About</a></li>
+    </menu>
+
+    <div class="sidebar-social">
+      <li class="social-items"><a href="https://www.facebook.com/" class="social-links"><i class="social-icons fa fa-facebook" aria-hidden="true"></i></a></li>
+      <li class="social-items"><a href="https://twitter.com/" class="social-links"><i class="social-icons fa fa-twitter" aria-hidden="true"></i></a></li>
+      <li class="social-items"><a href="https://plus.google.com/" class="social-links"><i class="social-icons fa fa-google-plus" aria-hidden="true"></i></a></li>
+      <li class="social-items"><a href="https://github.com/" class="social-links"><i class="social-icons fa fa-github" aria-hidden="true"></i></a></li>
+    </div>
+
+  </div>
+</aside>
+
+
+  <main role="main">
+    <div class="content">
+      <article class="page-article">
+  <div class="wrap-content">
+    <header class="page-header">
+      <h1 class="page-title">简述原型模式</h1>
+      <div class="page-date"><span>2017, May 25&nbsp;&nbsp;&nbsp;&nbsp;</span></div>
+    </header>
+    <div class="page-content">
+      
+      <h3 id="原型模式">原型模式</h3>
+
+<p>原型模式，用起来其实就是做clone操作，clone一个对象，越过构造器，在特定使用场景下增加效率。</p>
+
+<h3 id="使用场景">使用场景：</h3>
+
+<ol>
+  <li>类初始化需要消耗很多资源，比较耗时。</li>
+  <li>new方式非常繁琐，还涉及到权限之类的。用clone就减少操作。</li>
+  <li>一个对象需要提供给其他对象使用，而且各个使用都可能改到值，可以考虑用原型模式，做保护性拷贝。</li>
+</ol>
+
+<p><strong>先说说原型模式主要的浅拷贝和深拷贝：</strong></p>
+
+<h4 id="浅拷贝">浅拷贝：</h4>
+
+<p>可被clone的对象:</p>
+
+<ul>
+  <li>实现 Cloneable接口</li>
+  <li>重写clone方法</li>
+  <li>先clone，再给参数赋值
+    <div class="highlighter-rouge"><pre class="highlight"><code>public class Document implements Cloneable {
+  private String mText;
+  private ArrayList&lt;String&gt; list = new ArrayList&lt;&gt;();
+
+  public String getmText() {
+      return mText;
+  }
+
+  public void setmText(String mText) {
+      this.mText = mText;
+  }
+
+  @Override
+  protected Document clone() throws CloneNotSupportedException {
+      Document document = (Document) super.clone();
+      document.mText = this.mText;
+      document.list = this.list;
+      return document;
+  }
+}
+</code></pre>
+    </div>
+    <h4 id="深拷贝">深拷贝：</h4>
+  </li>
+</ul>
+
+<p>对于上面ArrayList,它自身实现类cloneable接口的，所以它本身也是可以clone的，对于对象，赋值后，是指向同一个地址的，对于浅拷贝来说，如果改了list对象，那么原有的对象list也会被修改到。所以对于list对象，我们也需要拷贝一下，修改如下。</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>
+public class Document implements Cloneable {
+    private String mText;
+    private ArrayList&lt;String&gt; list = new ArrayList&lt;&gt;();
+
+    public String getmText() {
+        return mText;
+    }
+
+    public void setmText(String mText) {
+        this.mText = mText;
+    }
+
+    @Override
+    protected Document clone() throws CloneNotSupportedException {
+        Document document = (Document) super.clone();
+        document.mText = this.mText;
+        document.list = (ArrayList&lt;String&gt;) this.list.clone();
+        return document;
+    }
+}
+
+</code></pre>
+</div>
+
+<h4 id="检验">检验</h4>
+
+<p>首先：对于浅拷贝</p>
+
+<ul>
+  <li>我们用下面一段代码来做检验：</li>
+</ul>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>
+Document document = new Document();
+        document.setmText("11111100000");
+        document.getList().add("00");
+        System.out.println("内容原始：" + document.toString());
+
+        Document document1 = document.clone();
+        document1.setmText("111111");
+        document1.getList().add("111");
+        System.out.println("内容修改：" + document1.toString());
+        System.out.println("内容原始：" + document.toString());
+
+</code></pre>
+</div>
+
+<ul>
+  <li>输出:</li>
+</ul>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>内容原始：Document{mText='11111100000', list=[00]}
+内容修改：Document{mText='111111', list=[00, 111]}
+内容原始：Document{mText='11111100000', list=[00, 111]}
+</code></pre>
+</div>
+
+<p>这里很明显的能看到，我们改了String类型，也改了list对象。但是输出后，原始的String类型的text没变，但是list却被改变了。
+这是为什么呢？</p>
+
+<p>原因其实是：
+<strong>String类型是不可变类型，所以我们不推荐在for循环中使用+号来拼接一样，因为每+一次就会创建一块内存来装。同理，这里的虽然拷贝了string类型，但是第二个对象修改的时候，string的text是指向了新的地址而不是把原地址数据给改了，所以原对象的text并没被改。但list就不一样了，改的是原对象地址的数据</strong>
+所以我们才会需要深拷贝。</p>
+
+<p>然后我们再检验一次深拷贝的：</p>
+
+<p>输出内容：</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>内容原始：Document{mText='11111100000', list=[00]}
+内容修改：Document{mText='111111', list=[00, 111]}
+内容原始：Document{mText='11111100000', list=[00]}
+
+</code></pre>
+</div>
+
+<p>我们使用深拷贝的时候，将对象list也clone了，就没有指向的不再是原有地址了，所以改动也就影响不到原来数据咯。</p>
+
+<p>另外：实现Cloneable接口只是一种方式。要实现clone也不一定非要实现这个接口(使用Object来重写clone方法的话一定要实现，不然会抛出异常)。</p>
+
+<p>如果使用new的方式并不耗资源等，clone的时候我们传入自己，用new的效率或许会更高：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>  public Document(Document document) {
+        this.mText = document.getmText();
+        this.list = document.getList();
+    }
+
+@Override
+    public Document clone() throws CloneNotSupportedException {
+        Document document = new Document(this);
+        return document;
+    }
+</code></pre>
+</div>
+
+    </div>
+    
+
+  </div>
+</article>
+
+    </div>
+  </main>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', '', 'auto');
+  ga('send', 'pageview');
+</script>
+
+</body>
+</html>

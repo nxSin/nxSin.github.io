@@ -1,92 +1,784 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.4.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2017-09-26T23:04:27+08:00</updated><id>http://localhost:4000/</id><title type="html">Fresh - Free Jekyll Theme</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
-</subtitle><entry><title type="html">An old house</title><link href="http://localhost:4000/an-old-house/" rel="alternate" type="text/html" title="An old house" /><published>2017-03-30T08:00:00+08:00</published><updated>2017-03-30T08:00:00+08:00</updated><id>http://localhost:4000/an-old-house</id><content type="html" xml:base="http://localhost:4000/an-old-house/">&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.4.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2017-09-27T21:36:05+08:00</updated><id>http://localhost:4000/</id><title type="html">Fresh - Free Jekyll Theme</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
+</subtitle><entry><title type="html">简述策略模式</title><link href="http://localhost:4000/%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F/" rel="alternate" type="text/html" title="简述策略模式" /><published>2017-09-17T00:00:00+08:00</published><updated>2017-09-17T00:00:00+08:00</updated><id>http://localhost:4000/%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F</id><content type="html" xml:base="http://localhost:4000/%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F/">&lt;h3 id=&quot;事例&quot;&gt;事例&lt;/h3&gt;
 
-&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&lt;/p&gt;
+&lt;p&gt;一个每天打饭的时候，都会打一个荤菜和一个素菜和一人饭。饭固定，一个人一块，素菜也是固定的，只要1.6元而荤菜则根据不同菜品和不同重量来计算。鸭肉需要1.5块一两，鸡肉需要2块一两，猪肉1.8块一两。换算到java中，我们要计算中午饭多少钱，可以用如下方式。&lt;/p&gt;
 
-&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&lt;/p&gt;</content><author><name></name></author><summary type="html">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</summary></entry><entry><title type="html">Zagreb city</title><link href="http://localhost:4000/zagreb-city/" rel="alternate" type="text/html" title="Zagreb city" /><published>2017-03-29T06:00:00+08:00</published><updated>2017-03-29T06:00:00+08:00</updated><id>http://localhost:4000/zagreb-city</id><content type="html" xml:base="http://localhost:4000/zagreb-city/">&lt;p&gt;Cras ac ex sit amet leo rhoncus elementum eget eget eros. Curabitur venenatis lacus eget tempus consequat. Duis feugiat vehicula bibendum. Aliquam imperdiet tortor in diam viverra scelerisque. Vestibulum erat odio, rutrum nec volutpat et, mattis id diam. Vivamus nec nunc placerat, laoreet sapien ac, dignissim magna. Sed eu lorem eget eros bibendum dignissim. Etiam eget mi non turpis pellentesque dignissim et quis turpis. Pellentesque efficitur enim in lorem consectetur scelerisque.&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;public class PriceClient{
+    
+    private static int pork=1;
+    private static int chicken=2;
+    private static int dock=3;
 
-&lt;p&gt;Ut ut dolor vehicula, aliquam elit vitae, venenatis velit. Pellentesque sollicitudin vestibulum ligula, in volutpat elit vehicula vel. Mauris massa ante, vestibulum eget nisi vel, elementum tempor risus. Vivamus tincidunt ligula lorem. In viverra suscipit enim et finibus. Cras porta massa vitae ligula pretium dapibus. Ut nisl nulla, sollicitudin nec viverra quis, bibendum vel tortor. Aenean at porttitor dolor, id tristique purus. Phasellus consequat justo in elit congue sagittis. Cras at dolor molestie nisl feugiat scelerisque.&lt;/p&gt;
+    public static void main(String[] args){
+        PriceClient priceClient=new PriceClient();
+        
+        System.out.println(&quot;今天吃米饭+素菜+3两猪肉，价格是：&quot;+priceClient.calcuatePrice(pork,3));
+    }
+    
+    /**
+    * 计算价格
+    * @param liang 两数
+    */
+    float calcuatePrice(int type , int liang){
+        float price=1+1.6;//先计算出米饭和素菜的价格
+        if(pork==type){
+            return price+porkPrice(liang);
+        }else if(chicken==type){
+            return price+chickenPrice(liang);
+        }else{
+            return price+dockPrice(liang);
+        }
+    }
+    
+    /**
+    * 猪肉1.8一两
+    * @param liang 两数
+    */
+    private float porkPrice(int liang){
+        return 1.8*liang;
+    }
+    
+    /**
+    * 鸡肉2一两
+    * @param liang 两数
+    */
+    private float chickenPrice(int liang){
+        return 2*liang;
+    }
+    
+    /**
+    * 鸭肉1.5一两
+    * @param liang 两数
+    */
+    private float dockPrice(int liang){
+        return 1.5*liang;
+    }
+}
 
-&lt;p&gt;Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque leo nulla, luctus vitae fermentum ac, posuere vitae lacus. Fusce interdum cursus enim ac mattis. Nunc id ornare ipsum, in commodo urna. Integer id lacus placerat, vehicula risus id, finibus sem. Morbi et elementum arcu, eget tempor est. Duis vulputate porta magna in volutpat. Morbi a feugiat velit, vel efficitur ex.&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
-&lt;p&gt;Praesent non elementum turpis. Fusce venenatis est sed tortor laoreet venenatis. Suspendisse potenti. Cras tempor vulputate velit, ac suscipit leo efficitur id. Pellentesque quis urna interdum, bibendum arcu id, pharetra orci. Fusce sit amet accumsan risus. Ut malesuada dui enim, a cursus felis scelerisque ut. Sed fermentum mauris lacus. Cras vitae sagittis erat. Interdum et malesuada fames ac ante ipsum primis in faucibus. Vestibulum vehicula molestie lectus, sed consectetur velit suscipit non. Phasellus et vestibulum dolor, sit amet viverra ex. Vestibulum consequat purus nisi. Nunc ultricies ex vel justo cursus, sed placerat massa hendrerit.&lt;/p&gt;
+&lt;p&gt;现在这代码看起来还是挺简单的吧，而且还是对每个肉类的价格是分开在不同方法内计算的了，看起来简单吗？但是如果肉类品种越来越多，那又得不断在后面加if-else来判断返回具体执行方法。然后这个类中的代码越来越臃肿，难以维护。另外增加的时候，可能很多时候是通过复制粘贴的方式，手动复制很容易引入错误。
+就这里就违反了我们说的，开关闭原则，每次要增加都在这个类中修改。也违反了单一原则，一个类包含了多个计算方式。&lt;/p&gt;
 
-&lt;p&gt;Etiam aliquet eros id lacus suscipit, non pellentesque neque faucibus. Quisque convallis ex vel erat venenatis, ut eleifend nisi rhoncus. Duis in felis ligula. Donec tincidunt efficitur massa aliquam molestie. Nulla pellentesque justo est. Aliquam velit massa, pharetra viverra laoreet et, mollis nec ipsum. Aliquam non ullamcorper ligula. Cras accumsan non ante sit amet tempus.&lt;/p&gt;
+&lt;p&gt;在这里我们可以利用抽象来解决这个问题。&lt;/p&gt;
 
-&lt;p&gt;Nulla egestas vestibulum ligula accumsan scelerisque. Sed nunc dolor, malesuada vitae metus cursus, venenatis efficitur mi. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Mauris et turpis id orci gravida aliquam. Curabitur ullamcorper fermentum orci, vitae ornare risus tincidunt non. Interdum et malesuada fames ac ante ipsum primis in faucibus. Ut bibendum est vel risus egestas congue. Aenean varius orci at purus maximus, euismod imperdiet purus varius.&lt;/p&gt;</content><author><name></name></author><summary type="html">Cras ac ex sit amet leo rhoncus elementum eget eget eros. Curabitur venenatis lacus eget tempus consequat. Duis feugiat vehicula bibendum. Aliquam imperdiet tortor in diam viverra scelerisque. Vestibulum erat odio, rutrum nec volutpat et, mattis id diam. Vivamus nec nunc placerat, laoreet sapien ac, dignissim magna. Sed eu lorem eget eros bibendum dignissim. Etiam eget mi non turpis pellentesque dignissim et quis turpis. Pellentesque efficitur enim in lorem consectetur scelerisque.</summary></entry><entry><title type="html">Wooden house</title><link href="http://localhost:4000/the-white-house/" rel="alternate" type="text/html" title="Wooden house" /><published>2017-03-29T06:00:00+08:00</published><updated>2017-03-29T06:00:00+08:00</updated><id>http://localhost:4000/the-white-house</id><content type="html" xml:base="http://localhost:4000/the-white-house/">&lt;p&gt;Mauris rutrum, felis vestibulum sodales posuere, erat odio volutpat ex, id interdum mi turpis ac eros. Etiam et mattis quam, non sagittis mauris. Pellentesque eleifend turpis et sem lobortis dignissim. Vivamus sagittis maximus ultricies. Ut sed nisi nisl. Sed sed purus sit amet mi accumsan dignissim ut quis augue. Nullam ut lacus nec odio aliquam tempor. Praesent nulla sapien, congue bibendum tristique luctus, mattis nec augue.&lt;/p&gt;
+&lt;h3 id=&quot;抽象实现&quot;&gt;抽象实现&lt;/h3&gt;
 
-&lt;p&gt;Praesent accumsan, velit eget iaculis faucibus, eros quam venenatis nulla, vel accumsan risus nibh eu risus. Aenean rutrum efficitur eros, nec tincidunt felis dignissim eget. Mauris et eros nec leo varius auctor eget nec urna. Mauris ac purus neque. Nulla sed ultricies dolor, eget eleifend magna. Sed sapien nisl, vestibulum vel facilisis sit amet, finibus eu enim. Etiam et nisl ut odio commodo tempor. In rutrum a quam a lobortis. Duis euismod luctus ex nec pharetra. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Morbi eu neque nisl. Vivamus fringilla lorem non varius sagittis. Phasellus quis dapibus elit. Curabitur gravida purus id tincidunt sollicitudin. Suspendisse in placerat felis.&lt;/p&gt;
-
-&lt;p&gt;Phasellus tincidunt pulvinar ante, pretium pellentesque urna mollis id. Donec convallis ut elit at aliquet. Suspendisse potenti. Maecenas finibus urna at arcu mollis imperdiet. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Etiam ut odio sagittis, mollis nibh sed, maximus arcu. Vestibulum varius dictum ipsum consequat posuere. Maecenas tincidunt turpis in tellus elementum auctor. Curabitur fringilla a risus eget consequat.&lt;/p&gt;
-
-&lt;p&gt;Suspendisse massa mi, iaculis in cursus in, ullamcorper vitae orci. Praesent porttitor erat eu massa facilisis, id consequat est ultrices. Ut ac nibh sed turpis tincidunt suscipit a non arcu. Praesent imperdiet nisi non sapien efficitur mollis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Praesent euismod sagittis consequat. Proin nulla lacus, porta eget pulvinar eu, aliquam malesuada sem. Pellentesque sed dolor et urna ullamcorper rhoncus. Mauris tempor aliquam dolor eget efficitur. Donec tristique fermentum ligula eu feugiat. Morbi dolor sapien, condimentum eu massa id, faucibus egestas sapien. Sed eu gravida dui. Nunc at felis consectetur felis fermentum pharetra.&lt;/p&gt;</content><author><name></name></author><summary type="html">Mauris rutrum, felis vestibulum sodales posuere, erat odio volutpat ex, id interdum mi turpis ac eros. Etiam et mattis quam, non sagittis mauris. Pellentesque eleifend turpis et sem lobortis dignissim. Vivamus sagittis maximus ultricies. Ut sed nisi nisl. Sed sed purus sit amet mi accumsan dignissim ut quis augue. Nullam ut lacus nec odio aliquam tempor. Praesent nulla sapien, congue bibendum tristique luctus, mattis nec augue.</summary></entry><entry><title type="html">Example</title><link href="http://localhost:4000/example/" rel="alternate" type="text/html" title="Example" /><published>2017-03-29T06:00:00+08:00</published><updated>2017-03-29T06:00:00+08:00</updated><id>http://localhost:4000/example</id><content type="html" xml:base="http://localhost:4000/example/">&lt;h2 id=&quot;headings&quot;&gt;Headings&lt;/h2&gt;
-
-&lt;p&gt;Headings by default:&lt;/p&gt;
-
-&lt;h2 id=&quot;heading-first-level&quot;&gt;Heading first level&lt;/h2&gt;
-&lt;h3 id=&quot;heading-second-level&quot;&gt;Heading second level&lt;/h3&gt;
-&lt;h4 id=&quot;heading-third-level&quot;&gt;Heading third level&lt;/h4&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-markdown&quot; data-lang=&quot;markdown&quot;&gt;&lt;span class=&quot;gu&quot;&gt;## Heading first level&lt;/span&gt;
-&lt;span class=&quot;gu&quot;&gt;### Heading second level&lt;/span&gt;
-&lt;span class=&quot;gu&quot;&gt;#### Heading third level&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;h2 id=&quot;lists&quot;&gt;Lists&lt;/h2&gt;
-
-&lt;p&gt;Unordered list example:&lt;/p&gt;
 &lt;ul&gt;
-  &lt;li&gt;Unordered list item 1&lt;/li&gt;
-  &lt;li&gt;Unordered list item 2&lt;/li&gt;
-  &lt;li&gt;Unordered list item 3&lt;/li&gt;
-  &lt;li&gt;Unordered list item 4&lt;/li&gt;
+  &lt;li&gt;UML图&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;Ordered list example:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://owfb8j78q.bkt.clouddn.com/Stragety.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;创建一个接口，来定义价格计算方法：&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+/**
+ * 价格策略计算接口
+ */
+public interface StragetyPrice {
+
+
+    /**
+     * 
+     */
+    public void calcuatePrice();
+
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;ul&gt;
+  &lt;li&gt;实际计算类&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+/**
+ * 猪肉计算
+ */
+public class ConcerateStragetyPork implements Stragety {
+
+    /**
+     * Default constructor
+     */
+    public ConcerateStragetyPork() {
+    }
+
+    /**
+     * 计算价格
+     */
+    public float calcuatePrice(int liang) {
+        return 1.8*liang;
+    }
+
+}
+
+/**
+ * 鸡肉计算
+ */
+public class ConcerateStragetyChicken implements Stragety {
+
+    /**
+     * Default constructor
+     */
+    public ConcerateStragetyChicken() {
+    }
+
+    /**
+     * 计算价格
+     */
+    public float calcuatePrice(int liang) {
+        return 2*liang;
+    }
+
+}
+
+/**
+ * 鸭肉计算
+ */
+public class ConcerateStragetyDock implements Stragety {
+
+    /**
+     * Default constructor
+     */
+    public ConcerateStragetyDock() {
+    }
+
+    /**
+     * 计算价格
+     */
+    public float calcuatePrice(int liang) {
+        return 1.5*liang;
+    }
+
+}
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Client修改：&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;public class PriceClient{
+    private Stragety stragety;
+
+    public static void main(String[] args){
+        PriceClient priceClient=new PriceClient();
+        priceClient.setStragety(new ConcerateStragetyDock());//设置猪肉
+        System.out.println(&quot;今天吃米饭+素菜+3两猪肉，价格是：&quot;+priceClient.calcuatePrice(3));
+    }
+    
+    public void setStragety(Stragety stragety){
+        this.stragety=stragety;
+    }
+    
+    /**
+    * 计算价格
+    * @param liang 两数
+    */
+    float calcuatePrice(int liang){
+        float price=1+1.6;//先计算出米饭和素菜的价格
+        return price+stragety.calcuatePrice(liang);
+    }
+}
+    
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;这个样子来实现可变的部分，然后达到可扩展的效果，如果后面还有另外的荤菜，只需要加入一个实现Stragety接口就可以了。对之前的代码修改关闭，也体现了调用client的单一职责，它只需要调用和设置，真正的可变计算在各自实现类中。&lt;/p&gt;
+
+&lt;h3 id=&quot;总结&quot;&gt;总结&lt;/h3&gt;
+
+&lt;p&gt;基本的简单实现到这里就结束了。策略模式也是一个使用很多的设计模式，优点在于替换if-else结构，在一个整体流程中，如果因为其中某一部分可变造成结果可变的不妨就使用策略模式。如果是全部都可变可替换，你还是可以考虑工厂模式，所以说所有设计模式都大同小异呢，但是使用场景和站的角度不同你就可以看成是不同的设计模式。最终结果是为了更优雅的实现方式即六大原则。&lt;/p&gt;</content><author><name></name></author><category term="策略模式" /><summary type="html">事例</summary></entry><entry><title type="html">简述工厂模式</title><link href="http://localhost:4000/%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8F/" rel="alternate" type="text/html" title="简述工厂模式" /><published>2017-08-13T00:00:00+08:00</published><updated>2017-08-13T00:00:00+08:00</updated><id>http://localhost:4000/%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8F</id><content type="html" xml:base="http://localhost:4000/%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8F/">&lt;h2 id=&quot;工厂&quot;&gt;工厂&lt;/h2&gt;
+
+&lt;h3 id=&quot;事例&quot;&gt;事例：&lt;/h3&gt;
+
+&lt;p&gt;某公司下有多条生产线，都是生产鸭脖。但鸭脖有酱香的，有麻辣的，有五香的，有原味的。每条生产线生产一种鸭脖，而鸭脖又对应不同味道即不同商标。对于忙碌的领导来说，他需要知道所有生产线吗和所有鸭脖吗？那样的话要记录的事也太多了，越来越多的生产线和鸭脖味道就会越来越复杂。对应在程序中也是如此，领导只需要关心有生产线生产鸭脖，鸭脖有味道就可以了。用得最多的模式，工厂模式来表述上面事例。&lt;/p&gt;
+
+&lt;h3 id=&quot;抽象工厂和抽象产品&quot;&gt;抽象工厂和抽象产品&lt;/h3&gt;
+
+&lt;p&gt;基于面向对象的思想，首先定义一个生产线接口，它有一个实现生产鸭脖的方法。再定义一个鸭脖接口，它有一个味道的方法。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+public interface IProductLineFactory{
+    IDuckNeck createDuckNeck();
+}
+
+public interface IDuckNeck{
+    void taste();
+}
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;实际工厂和实际产品&quot;&gt;实际工厂和实际产品&lt;/h3&gt;
+
+&lt;p&gt;我们假设要找产原味鸭脖的生产线生产原味鸭脖。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+public class NormalProductLineFactory implements IProductLineFactory{
+    @Override
+    public IDuckNeck createDuckNeck(){
+        return new NormalTasteDuckNeck();
+    }
+}
+
+public class NormalTasteDuckNeck implements IDuckNeck {
+    @Override
+    public void taste(){
+        System.out.printls(&quot;这里是原味鸭脖哦&quot;); 
+    }
+}
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;然后我们想要获取看看鸭脖味道：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;public class Test{
+    public static void main(String[] args){
+        IProductLineFactory factory=new NormalProductLineFactory();
+        IDuckNeck duckneck=factory.createDuckNeck();
+        duckneck.taste();
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;这里几个角色也很简单，主要四大模块：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;抽象工厂：它为工厂方法的核心&lt;/li&gt;
+  &lt;li&gt;具体工厂：实现了具体的业务逻辑，生产具体的产品。&lt;/li&gt;
+  &lt;li&gt;抽象产品：工厂方法模式所创建的产品的父类。&lt;/li&gt;
+  &lt;li&gt;具体产品：抽象产品具体产品的对象，实现具体行为。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;要找另外的生产线生产另外味道的鸭脖，也可以轻而易举的就执行了。对于领导只需要知道生产线生产鸭脖，鸭脖有自己的味道就可以了。如果想得到麻辣味鸭脖，只需要更改工厂实现逻辑即可，返回麻辣味鸭脖就可以了。&lt;/p&gt;
+
+&lt;p&gt;当然这种方式，我们需要创建更多的工厂具体类，所以也是挺麻烦的，通常我们可以通过自己喜欢的方式来不重复创建工厂类：&lt;/p&gt;
+
+&lt;h3 id=&quot;实际使用工厂方式&quot;&gt;实际使用工厂方式&lt;/h3&gt;
+
+&lt;h4 id=&quot;反射创建&quot;&gt;反射创建&lt;/h4&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+public interface IProductLineFactory{
+    /**
+     * 抽象工厂方法
+     * @param clz 产品对象类型
+     * @return 具体产品对象
+     */
+    &amp;lt;T extends IDuckNeck&amp;gt; T createDuckNeck(Class&amp;lt;T&amp;gt; clz);
+}
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;对于具体工厂类，我们可以通过反射获取类的实例：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;public class ConcreteFactory implements IProductLineFactory{
+    public &amp;lt;T extends IDuckNeck&amp;gt; T createDuckNeck(Class&amp;lt;T&amp;gt; clz){
+        IDuckNeck duckneck;
+        try{
+            duckneck=(IDuckNeck)Class.forName(clz.getName()).newInstance();
+        }catch(Exception e){
+        }
+        return duckneck;
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;再来看下测试：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+public class Test{
+    public static void main(String[] args){
+        IProductLineFactory factory=new ConcreteFactory();
+        IDuckNeck duckneck=factory.createDuckNeck(NormalTasteDuckNeck.class);
+        duckneck.taste();
+    }
+}
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;这是一种方式，通过反射就不用反复创建具体工厂了，当然反射效率稍微要低一点，所以还是可以有其他方式实现。&lt;/p&gt;
+
+&lt;p&gt;实现方式看具体业务逻辑需求，如果工厂只有一个，可以直接用静态工厂，来去掉抽象工厂类。&lt;/p&gt;
+
+&lt;h4 id=&quot;静态工厂&quot;&gt;静态工厂：&lt;/h4&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;public class ConcreteFactory{
+    public static IDuckNeck createDuckNeck(){
+        return new NormalTasteDuckNeck();
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;静态工厂是工厂方式的一种弱化，就直接简化掉了抽象工厂类，如果产品类型不是很多，还可以在抽象工厂类中加入Type类型，来做一个switch取出直接产品类型。&lt;/p&gt;
+
+&lt;h2 id=&quot;抽象工厂&quot;&gt;抽象工厂&lt;/h2&gt;
+
+&lt;h3 id=&quot;事例-1&quot;&gt;事例&lt;/h3&gt;
+
+&lt;p&gt;夏天来了，我们都爱喝饮料，比如某快线和某矿泉水。某快线由饮料部分是乳白色。而矿泉水是透明色，某快线盖子是橙色，矿泉水盖子是白色。身体部分均由软塑料瓶组成。&lt;/p&gt;
+
+&lt;p&gt;那么换到我们代码世界中来，不就对应了可替换模块不同实现和实现下组成部分的不同，将组成部分抽象,将每一个组成部分看作一个产品。&lt;/p&gt;
+
+&lt;h4 id=&quot;抽象工厂-1&quot;&gt;抽象工厂&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;先定义一个抽象饮料:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+public abstract class DrinkFactory{
+    
+    /**
+     * 生产液体
+     * return 液体部分
+     */
+    public abstract ILiquid createLiquid();
+    
+    /**
+     * 生产盖子
+     * return 盖子部分
+     */
+    public abstract ICap createCap();
+    
+    /**
+     * 生产瓶子
+     * 因为两个产品瓶子一样，所以可以Up Method 到父类中，如果子类需要改变则自己重写就好
+     */
+    protect void createBottle(){
+        System.out.println(&quot;瓶身是熟料瓶身&quot;);
+    }
+}
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;液体相关类&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+public interface ILiquid{
+    void liquid();
+}
+
+public class TransparencyLiquid implements ILiquid{
+    @Override
+    public void liquid(){
+        System.out.println(&quot;透明液体&quot;);
+    }
+}
+
+public class LacteLiquid implements ILiquid{
+    @Override
+    public void liquid(){
+        System.out.println(&quot;乳白色液体&quot;);
+    }
+}
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;盖子相关类&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;public interface ICap{
+    void cap();
+}
+
+public class OrangeCap implements ICap{
+    @Override
+    public void cap(){
+        System.out.println(&quot;橙色盖子&quot;);
+    }
+}
+
+public class WhiteCap implements ICap{
+    @Override
+    public void cap(){
+        System.out.println(&quot;白色盖子&quot;);
+    }
+}
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;声明完了之后，具体工厂就出来了：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;具体工厂类：&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;public class XXQX extends DrinkFactory{
+
+    /**
+     * 生产液体
+     * return 液体部分
+     */
+    @Override
+    public ILiquid createLiquid(){
+        return new LacteLiquid();
+    }
+    
+    /**
+     * 生产盖子
+     * return 盖子部分
+     */
+    @Override
+    public ICap createCap(){
+        return new OrangeCap();
+    }
+}
+
+public class XXMineralWater extends DrinkFactory{
+
+    /**
+     * 生产液体
+     * return 液体部分
+     */
+    @Override
+    public ILiquid createLiquid(){
+        return new TransparencyLiquid();
+    }
+    
+    /**
+     * 生产盖子
+     * return 盖子部分
+     */
+    @Override
+    public ICap createCap(){
+        return new WhiteCap();
+    }
+}
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;测试：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;public class Test{
+    public static void main(String[] args){
+        DrinkFactory factoryMineralWater=new XXMineralWater();
+        factoryMineralWater.createLiquid().liquid();
+        factoryMineralWater.createCap().cap();
+        factoryMineralWater.createBottle();
+        System.out.println(&quot;-------&quot;);
+        
+        DrinkFactory factoryQX=new XXQX();
+        factoryQX.createLiquid().liquid();
+        factoryQX.createCap().cap();
+        factoryQX.createBottle();
+    }
+}
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;就这样就把一个饮料给拆分了，组成部分也为产品，我们也可以抽象出来，当其他饮料需要用到的时候可以直接使用，扩展性更好了。&lt;/p&gt;
+
+&lt;p&gt;这里用的抽象类，有一个好处就是提升了公共部分，重构的时候，往往会用到此方式，UP Method。就像这里的瓶身&lt;/p&gt;
+
+&lt;h3 id=&quot;总结&quot;&gt;总结&lt;/h3&gt;
+
+&lt;p&gt;例子1是鸭脖，例子2是饮料，其都是工厂生产产品，而产品具体实现交由产品自己实现。在项目中是一个可替换模块（工厂），对应行为也可替换（产品），但实现不同，将组成部分抽象。&lt;/p&gt;
+
+&lt;p&gt;工厂模式是完全符合设计原则的，依赖与抽象的架构，将具体操作交由对应的子类完成，有非常好的扩展性。很多一些使扩展性好的设计模式，比如策略，状态等也都能看到工厂模式的影子。&lt;strong&gt;工厂模式不愧为应用最广泛的设计模式&lt;/strong&gt;&lt;/p&gt;</content><author><name></name></author><category term="工厂" /><summary type="html">工厂</summary></entry><entry><title type="html">简述单例模式</title><link href="http://localhost:4000/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/" rel="alternate" type="text/html" title="简述单例模式" /><published>2017-05-27T00:00:00+08:00</published><updated>2017-05-27T00:00:00+08:00</updated><id>http://localhost:4000/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F</id><content type="html" xml:base="http://localhost:4000/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/">&lt;h3 id=&quot;单例方式&quot;&gt;单例方式&lt;/h3&gt;
+
+&lt;p&gt;看到很多人写单例都不考虑线程安全，当多线程操作当时候，就可能出现多个实例，那么不就违背了单例的初衷了么？如果要维护到单例类中到成员，那就更尴尬了，我看到也实在是无奈，所以这里建议大家写单例是需要做到线程安全到！！&lt;/p&gt;
+
+&lt;p&gt;首先说推荐单例模式写法,&lt;strong&gt;其目的主要是为了做到线程安全：&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;1) DCL (Double CheckLock)&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;public class Singleton {
+
+    private Singleton() {
+    }
+
+    /**
+     * instance = new Singleton();因为不是一个原子操作，所以在编译到时候大致有三件事
+     * 1：给Singleton实例分配内存
+     * 2：调用好Sinleton() 构造函数，初始化成员字段
+     * 3：将instance对象指向分配到内存空间(执行了这一步后instance将为null了)
+     * 但是：
+     * 在JDK1.5之前有JMM(java Memory Model内存模型)中Cache、寄存器到驻内存回写顺序到规定，会导致执行顺序到不确定性
+     * 可能123 ，也可能132。
+     * 再1.5之后 JDK调整了JMM，加入了volatile关键字
+     *
+     * 这里加入volatile 关键字主要是为了保证每次都从驻内存获取
+     */
+    private volatile static Singleton instance;
+
+
+    public static Singleton getInstance() {
+        if (instance == null) {
+            synchronized (Singleton.class) {
+                if (instance == null)
+                    instance = new Singleton();
+            }
+        }
+        return instance;
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;DCL写法优点就是在第一次执行到时候才会实例化，效率高。缺点就是第一次加载反应稍慢，性能牺牲点。再JDK1.6以后使用，这种方式是不错的选择。&lt;/p&gt;
+
+&lt;p&gt;2) 静态内部类写法：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;private Singleton() {
+    }
+
+    private static class SingletonClassHolder {
+        private static final Singleton instance = new Singleton();
+    }
+
+    public static Singleton getInstance() {
+        return SingletonClassHolder.instance;
+    }
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;这是种单例方式，不光延迟了实例化，效率也高，也不需要双重检查锁定，并发上，性能就上去了。&lt;/p&gt;
+
+&lt;p&gt;3) 枚举&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;public enum Singleton {
+    INSTANCE;
+
+    public void doS() {
+        Log.e(&quot;11&quot;, &quot;11&quot;);
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;枚举最大的优点就是简单。枚举在java种与普通类式一样的，用这种方式来做单例也式很好的，最重要的是在任何情况下，它都式线程安全的，任何情况下它都只有一个实例。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;其他单例在反序列化的时候会因为readResolve方法，而重新生成对象&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;//其他单例实现种，反序列化需要用这种方式来避免重新生成对象
+private Object readResolve() throws ObjectStreamException{
+    return instance;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;另外 ：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;饿汉式:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;private static final Singleton instance = new Singleton();
+
+    private Singleton() {
+    }
+
+    public static Singleton getInstance() {
+        return instance;
+    }
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;看了前面两个，在看这个就明显了，在声明的时候就会实例化，也不管需不需要使用。所以一般不推荐使用，可根据应用场景选择。&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;懒汉式：&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+    private static Singleton instance;
+
+    private Singleton() {
+    }
+
+    public static synchronized Singleton getInstance() {
+        if (instance == null) {
+            instance = new Singleton();
+        }
+        return instance;
+    }
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;懒汉式式做到了再需要到时候才实例化了，但是每次获取的时候都需要同步，增加了开销，一般不推荐使用这种方式。&lt;/p&gt;
+
+&lt;h3 id=&quot;说说反射获取&quot;&gt;说说反射获取&lt;/h3&gt;
+
+&lt;p&gt;介绍了5种单例方式，不线程安全的就不在这里说了。&lt;/p&gt;
+
+&lt;p&gt;除了枚举意外以外的方式，都可以使用反射来获取对象,采用如下方式即可：&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Class&amp;lt;?&amp;gt; class1 = null;
+        try {
+            class1 = Class.forName(&quot;com.demo.Singleton&quot;);
+            Method m = class1.getMethod(&quot;getInstance&quot;);
+            Singleton single = (Singleton) m.invoke(null);
+            //获取到之后执行
+            single.doSomething();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        }
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;而枚举就不可以咯，会报错的。&lt;/p&gt;
+
+&lt;p&gt;所以枚举方式确实很不错。只是在android种不太推荐枚举，官方这样说的：
+&lt;img src=&quot;http://img.blog.csdn.net/20160530154046440?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center&quot; alt=&quot;image&quot; /&gt;,会消耗更多的内存，影响性能问题。对手机内存不大的，是个灾难。&lt;/p&gt;</content><author><name></name></author><category term="单例" /><summary type="html">单例方式</summary></entry><entry><title type="html">简述原型模式</title><link href="http://localhost:4000/%E5%8E%9F%E5%9E%8B%E6%A8%A1%E5%BC%8F/" rel="alternate" type="text/html" title="简述原型模式" /><published>2017-05-25T00:00:00+08:00</published><updated>2017-05-25T00:00:00+08:00</updated><id>http://localhost:4000/%E5%8E%9F%E5%9E%8B%E6%A8%A1%E5%BC%8F</id><content type="html" xml:base="http://localhost:4000/%E5%8E%9F%E5%9E%8B%E6%A8%A1%E5%BC%8F/">&lt;h3 id=&quot;原型模式&quot;&gt;原型模式&lt;/h3&gt;
+
+&lt;p&gt;原型模式，用起来其实就是做clone操作，clone一个对象，越过构造器，在特定使用场景下增加效率。&lt;/p&gt;
+
+&lt;h3 id=&quot;使用场景&quot;&gt;使用场景：&lt;/h3&gt;
+
 &lt;ol&gt;
-  &lt;li&gt;Ordered list item 1&lt;/li&gt;
-  &lt;li&gt;Ordered list item 1&lt;/li&gt;
-  &lt;li&gt;Ordered list item 1&lt;/li&gt;
-  &lt;li&gt;Ordered list item 1&lt;/li&gt;
+  &lt;li&gt;类初始化需要消耗很多资源，比较耗时。&lt;/li&gt;
+  &lt;li&gt;new方式非常繁琐，还涉及到权限之类的。用clone就减少操作。&lt;/li&gt;
+  &lt;li&gt;一个对象需要提供给其他对象使用，而且各个使用都可能改到值，可以考虑用原型模式，做保护性拷贝。&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-markdown&quot; data-lang=&quot;markdown&quot;&gt;&lt;span class=&quot;p&quot;&gt;*&lt;/span&gt; Unordered list item 1
-&lt;span class=&quot;p&quot;&gt;*&lt;/span&gt; Unordered list item 2
-&lt;span class=&quot;p&quot;&gt;
-1.&lt;/span&gt; Order list item 1
-&lt;span class=&quot;p&quot;&gt;2.&lt;/span&gt; Order list item 1&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;p&gt;&lt;strong&gt;先说说原型模式主要的浅拷贝和深拷贝：&lt;/strong&gt;&lt;/p&gt;
 
-&lt;h2 id=&quot;quotes&quot;&gt;Quotes&lt;/h2&gt;
+&lt;h4 id=&quot;浅拷贝&quot;&gt;浅拷贝：&lt;/h4&gt;
 
-&lt;p&gt;A quote looks like this:&lt;/p&gt;
+&lt;p&gt;可被clone的对象:&lt;/p&gt;
 
-&lt;blockquote&gt;
-  &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-incididunt ut labore et dolore magna.&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;ul&gt;
+  &lt;li&gt;实现 Cloneable接口&lt;/li&gt;
+  &lt;li&gt;重写clone方法&lt;/li&gt;
+  &lt;li&gt;先clone，再给参数赋值
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;public class Document implements Cloneable {
+  private String mText;
+  private ArrayList&amp;lt;String&amp;gt; list = new ArrayList&amp;lt;&amp;gt;();
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-markdown&quot; data-lang=&quot;markdown&quot;&gt;&lt;span class=&quot;gt&quot;&gt;&amp;gt; Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor&lt;/span&gt;
-incididunt ut labore et dolore magna.&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;</content><author><name></name></author><summary type="html">Headings</summary></entry><entry><title type="html">China - tiger leaping gorge</title><link href="http://localhost:4000/china-tiger-leaping-gorge/" rel="alternate" type="text/html" title="China - tiger leaping gorge" /><published>2017-03-29T06:00:00+08:00</published><updated>2017-03-29T06:00:00+08:00</updated><id>http://localhost:4000/china-tiger-leaping-gorge</id><content type="html" xml:base="http://localhost:4000/china-tiger-leaping-gorge/">&lt;p&gt;Curabitur vulputate enim at metus malesuada, in iaculis nisl tincidunt. Mauris dapibus ut ante ornare ullamcorper. Vivamus ultrices erat lorem. Phasellus pretium nisl ac elit porttitor, id condimentum velit aliquam. Morbi convallis fermentum rutrum. Nullam vestibulum sem augue, eu fermentum est tristique ut. Cras nec euismod erat. Vivamus cursus risus mauris, quis dapibus orci tincidunt at. Mauris eleifend lobortis nibh, at volutpat risus feugiat non. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque semper elit condimentum, ullamcorper erat eu, ultrices ex. Etiam ultricies sed orci quis elementum.&lt;/p&gt;
+  public String getmText() {
+      return mText;
+  }
 
-&lt;p&gt;Pellentesque eu porta odio. Cras a gravida ligula. Nullam purus turpis, dignissim sed lectus at, bibendum tristique nulla. Etiam mollis, ligula at eleifend mollis, ex erat finibus dui, quis efficitur dolor est fringilla tellus. Donec laoreet id tellus eget rutrum. Aliquam blandit tempor odio. Vivamus vel dolor ante.&lt;/p&gt;
+  public void setmText(String mText) {
+      this.mText = mText;
+  }
 
-&lt;p&gt;Vestibulum dignissim ac mauris sed laoreet. Mauris ligula lectus, placerat id eleifend vel, rhoncus ut lacus. Nunc justo enim, maximus quis ex ut, sollicitudin condimentum ligula. Donec convallis libero sit amet aliquet tempus. Curabitur ac fringilla dui. Integer consectetur at augue ac tempus. Nullam cursus justo nec turpis accumsan, nec tincidunt sapien facilisis. Mauris fringilla augue quis dui placerat lobortis. Praesent ultricies, nisl ac maximus posuere, mi felis convallis massa, ut dictum enim mi et ex. Curabitur gravida neque at fringilla pulvinar. Quisque non turpis non nisl eleifend condimentum sed eget libero.&lt;/p&gt;
+  @Override
+  protected Document clone() throws CloneNotSupportedException {
+      Document document = (Document) super.clone();
+      document.mText = this.mText;
+      document.list = this.list;
+      return document;
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+    &lt;h4 id=&quot;深拷贝&quot;&gt;深拷贝：&lt;/h4&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
 
-&lt;p&gt;Praesent vestibulum in odio at mattis. In purus lacus, commodo et pretium nec, interdum in mauris. Phasellus non sodales nisi. Nam suscipit molestie feugiat. Proin semper ut lectus id malesuada. Vivamus lectus lacus, luctus et nisl placerat, tristique semper elit. Morbi viverra lobortis iaculis.&lt;/p&gt;
+&lt;p&gt;对于上面ArrayList,它自身实现类cloneable接口的，所以它本身也是可以clone的，对于对象，赋值后，是指向同一个地址的，对于浅拷贝来说，如果改了list对象，那么原有的对象list也会被修改到。所以对于list对象，我们也需要拷贝一下，修改如下。&lt;/p&gt;
 
-&lt;p&gt;Nam in sagittis enim. Donec eget enim viverra, dapibus mi in, condimentum arcu. Vivamus ipsum nisl, consequat vitae rhoncus id, mattis vel velit. Duis ac libero eget felis tristique mattis. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nunc condimentum interdum dui et varius. Aliquam sed congue erat, in fringilla risus. Integer viverra vulputate ligula eu dignissim. Suspendisse rhoncus id lectus a rutrum. Praesent quis erat sit amet ipsum molestie scelerisque ac at augue. Suspendisse potenti. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Mauris suscipit ante in risus sollicitudin, non imperdiet mauris ullamcorper.&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+public class Document implements Cloneable {
+    private String mText;
+    private ArrayList&amp;lt;String&amp;gt; list = new ArrayList&amp;lt;&amp;gt;();
 
-&lt;p&gt;Sed viverra, dolor mollis dignissim consectetur, arcu mauris vehicula nibh, ac sollicitudin nisi sem vitae libero. Praesent sagittis, nulla sed ultricies placerat, nisl dui luctus dui, et vulputate tortor nisl et dolor. Nam pretium nunc nunc, sit amet luctus ante egestas id. Sed convallis viverra sem quis dapibus. Proin molestie orci sit amet volutpat sollicitudin. Morbi fringilla in lacus nec molestie. Integer in ipsum facilisis, gravida diam nec, fermentum urna.&lt;/p&gt;
+    public String getmText() {
+        return mText;
+    }
 
-&lt;p&gt;Praesent elementum neque quis pulvinar blandit. Aliquam fermentum tincidunt leo et tincidunt. Quisque finibus mattis fermentum. Nam pretium ullamcorper iaculis. Ut diam orci, volutpat quis augue sed, finibus auctor dui. Phasellus aliquet sagittis dolor, et blandit enim. Phasellus feugiat eleifend scelerisque. Mauris et diam sit amet massa tempus consequat. Vivamus blandit velit nec elit elementum pellentesque. Integer sed mi et mi tempus condimentum. Nullam ligula metus, vestibulum eget blandit eu, tempor ut neque. Fusce bibendum ac lacus ut pharetra. Curabitur laoreet eu enim sit amet imperdiet. Aenean rhoncus tortor vel arcu elementum semper. Quisque orci risus, viverra nec est pharetra, convallis placerat felis.&lt;/p&gt;</content><author><name></name></author><summary type="html">Curabitur vulputate enim at metus malesuada, in iaculis nisl tincidunt. Mauris dapibus ut ante ornare ullamcorper. Vivamus ultrices erat lorem. Phasellus pretium nisl ac elit porttitor, id condimentum velit aliquam. Morbi convallis fermentum rutrum. Nullam vestibulum sem augue, eu fermentum est tristique ut. Cras nec euismod erat. Vivamus cursus risus mauris, quis dapibus orci tincidunt at. Mauris eleifend lobortis nibh, at volutpat risus feugiat non. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque semper elit condimentum, ullamcorper erat eu, ultrices ex. Etiam ultricies sed orci quis elementum.</summary></entry><entry><title type="html">Welcome to Jekyll!</title><link href="http://localhost:4000/welcome-to-jekyll/" rel="alternate" type="text/html" title="Welcome to Jekyll!" /><published>2017-03-26T03:32:40+08:00</published><updated>2017-03-26T03:32:40+08:00</updated><id>http://localhost:4000/welcome-to-jekyll</id><content type="html" xml:base="http://localhost:4000/welcome-to-jekyll/">&lt;p&gt;You’ll find this post in your &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code class=&quot;highlighter-rouge&quot;&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
+    public void setmText(String mText) {
+        this.mText = mText;
+    }
 
-&lt;p&gt;To add new posts, simply add a file in the &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory that follows the convention &lt;code class=&quot;highlighter-rouge&quot;&gt;YYYY-MM-DD-name-of-post.ext&lt;/code&gt; and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.&lt;/p&gt;
+    @Override
+    protected Document clone() throws CloneNotSupportedException {
+        Document document = (Document) super.clone();
+        document.mText = this.mText;
+        document.list = (ArrayList&amp;lt;String&amp;gt;) this.list.clone();
+        return document;
+    }
+}
 
-&lt;p&gt;Jekyll also offers powerful support for code snippets:&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Hi, &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Tom'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;#=&amp;gt; prints 'Hi, Tom' to STDOUT.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;h4 id=&quot;检验&quot;&gt;检验&lt;/h4&gt;
 
-&lt;p&gt;Check out the &lt;a href=&quot;https://jekyllrb.com/docs/home&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;. If you have questions, you can ask them on &lt;a href=&quot;https://talk.jekyllrb.com/&quot;&gt;Jekyll Talk&lt;/a&gt;.&lt;/p&gt;</content><author><name></name></author><summary type="html">You’ll find this post in your _posts directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run jekyll serve, which launches a web server and auto-regenerates your site when a file is updated.</summary></entry></feed>
+&lt;p&gt;首先：对于浅拷贝&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;我们用下面一段代码来做检验：&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+Document document = new Document();
+        document.setmText(&quot;11111100000&quot;);
+        document.getList().add(&quot;00&quot;);
+        System.out.println(&quot;内容原始：&quot; + document.toString());
+
+        Document document1 = document.clone();
+        document1.setmText(&quot;111111&quot;);
+        document1.getList().add(&quot;111&quot;);
+        System.out.println(&quot;内容修改：&quot; + document1.toString());
+        System.out.println(&quot;内容原始：&quot; + document.toString());
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;输出:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;内容原始：Document{mText='11111100000', list=[00]}
+内容修改：Document{mText='111111', list=[00, 111]}
+内容原始：Document{mText='11111100000', list=[00, 111]}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;这里很明显的能看到，我们改了String类型，也改了list对象。但是输出后，原始的String类型的text没变，但是list却被改变了。
+这是为什么呢？&lt;/p&gt;
+
+&lt;p&gt;原因其实是：
+&lt;strong&gt;String类型是不可变类型，所以我们不推荐在for循环中使用+号来拼接一样，因为每+一次就会创建一块内存来装。同理，这里的虽然拷贝了string类型，但是第二个对象修改的时候，string的text是指向了新的地址而不是把原地址数据给改了，所以原对象的text并没被改。但list就不一样了，改的是原对象地址的数据&lt;/strong&gt;
+所以我们才会需要深拷贝。&lt;/p&gt;
+
+&lt;p&gt;然后我们再检验一次深拷贝的：&lt;/p&gt;
+
+&lt;p&gt;输出内容：&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;内容原始：Document{mText='11111100000', list=[00]}
+内容修改：Document{mText='111111', list=[00, 111]}
+内容原始：Document{mText='11111100000', list=[00]}
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;我们使用深拷贝的时候，将对象list也clone了，就没有指向的不再是原有地址了，所以改动也就影响不到原来数据咯。&lt;/p&gt;
+
+&lt;p&gt;另外：实现Cloneable接口只是一种方式。要实现clone也不一定非要实现这个接口(使用Object来重写clone方法的话一定要实现，不然会抛出异常)。&lt;/p&gt;
+
+&lt;p&gt;如果使用new的方式并不耗资源等，clone的时候我们传入自己，用new的效率或许会更高：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  public Document(Document document) {
+        this.mText = document.getmText();
+        this.list = document.getList();
+    }
+
+@Override
+    public Document clone() throws CloneNotSupportedException {
+        Document document = new Document(this);
+        return document;
+    }
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;</content><author><name></name></author><category term="工厂" /><summary type="html">原型模式</summary></entry></feed>

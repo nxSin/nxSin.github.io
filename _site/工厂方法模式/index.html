@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>简述工厂模式 - Fresh - Free Jekyll Theme</title>
+	<meta name="description" content="工厂模式为平时非常常用的设计模式之一。是时候简单了解下工厂模式的场景了。">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta property="og:image" content="">
+	<link rel="shortcut icon" href="/assets/img/favicon/favicon.ico" type="image/x-icon">
+	<link rel="apple-touch-icon" href="/assets/img/favicon/apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="/assets/img/favicon/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="/assets/img/favicon/apple-touch-icon-114x114.png">
+	<!-- Chrome, Firefox OS and Opera -->
+	<meta name="theme-color" content="#2d2a2a">
+	<!-- Windows Phone -->
+	<meta name="msapplication-navbutton-color" content="#2d2a2a">
+	<!-- iOS Safari -->
+	<meta name="apple-mobile-web-app-status-bar-style" content="#2d2a2a">
+
+	<link href="https://fonts.googleapis.com/css?family=Finger+Paint|PT+Sans:400,700" rel="stylesheet">
+	<link rel="stylesheet" href="/assets/fonts/font-awesome/css/font-awesome.min.css">
+	<link rel="stylesheet" href="/assets/css/main.css">
+</head>
+
+<body>
+
+  <aside class="sidebar">
+
+  <div class="sidebar-container">
+    <div class="sidebar-logo">
+      <a href="/" class="logo">NXSin</a>
+    </div>
+
+    <menu class="sidebar-menu">
+      <li class="menu-items"><a class="menu-links" href="/">Home</a></li>
+      <li class="menu-items"><a class="menu-links" href="/about/">About</a></li>
+    </menu>
+
+    <div class="sidebar-social">
+      <li class="social-items"><a href="https://www.facebook.com/" class="social-links"><i class="social-icons fa fa-facebook" aria-hidden="true"></i></a></li>
+      <li class="social-items"><a href="https://twitter.com/" class="social-links"><i class="social-icons fa fa-twitter" aria-hidden="true"></i></a></li>
+      <li class="social-items"><a href="https://plus.google.com/" class="social-links"><i class="social-icons fa fa-google-plus" aria-hidden="true"></i></a></li>
+      <li class="social-items"><a href="https://github.com/" class="social-links"><i class="social-icons fa fa-github" aria-hidden="true"></i></a></li>
+    </div>
+
+  </div>
+</aside>
+
+
+  <main role="main">
+    <div class="content">
+      <article class="page-article">
+  <div class="wrap-content">
+    <header class="page-header">
+      <h1 class="page-title">简述工厂模式</h1>
+      <div class="page-date"><span>2017, Aug 13&nbsp;&nbsp;&nbsp;&nbsp;</span></div>
+    </header>
+    <div class="page-content">
+      
+      <h2 id="工厂">工厂</h2>
+
+<h3 id="事例">事例：</h3>
+
+<p>某公司下有多条生产线，都是生产鸭脖。但鸭脖有酱香的，有麻辣的，有五香的，有原味的。每条生产线生产一种鸭脖，而鸭脖又对应不同味道即不同商标。对于忙碌的领导来说，他需要知道所有生产线吗和所有鸭脖吗？那样的话要记录的事也太多了，越来越多的生产线和鸭脖味道就会越来越复杂。对应在程序中也是如此，领导只需要关心有生产线生产鸭脖，鸭脖有味道就可以了。用得最多的模式，工厂模式来表述上面事例。</p>
+
+<h3 id="抽象工厂和抽象产品">抽象工厂和抽象产品</h3>
+
+<p>基于面向对象的思想，首先定义一个生产线接口，它有一个实现生产鸭脖的方法。再定义一个鸭脖接口，它有一个味道的方法。</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>
+public interface IProductLineFactory{
+    IDuckNeck createDuckNeck();
+}
+
+public interface IDuckNeck{
+    void taste();
+}
+
+</code></pre>
+</div>
+
+<h3 id="实际工厂和实际产品">实际工厂和实际产品</h3>
+
+<p>我们假设要找产原味鸭脖的生产线生产原味鸭脖。</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>
+public class NormalProductLineFactory implements IProductLineFactory{
+    @Override
+    public IDuckNeck createDuckNeck(){
+        return new NormalTasteDuckNeck();
+    }
+}
+
+public class NormalTasteDuckNeck implements IDuckNeck {
+    @Override
+    public void taste(){
+        System.out.printls("这里是原味鸭脖哦"); 
+    }
+}
+
+</code></pre>
+</div>
+
+<p>然后我们想要获取看看鸭脖味道：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>public class Test{
+    public static void main(String[] args){
+        IProductLineFactory factory=new NormalProductLineFactory();
+        IDuckNeck duckneck=factory.createDuckNeck();
+        duckneck.taste();
+    }
+}
+</code></pre>
+</div>
+
+<p>这里几个角色也很简单，主要四大模块：</p>
+
+<ul>
+  <li>抽象工厂：它为工厂方法的核心</li>
+  <li>具体工厂：实现了具体的业务逻辑，生产具体的产品。</li>
+  <li>抽象产品：工厂方法模式所创建的产品的父类。</li>
+  <li>具体产品：抽象产品具体产品的对象，实现具体行为。</li>
+</ul>
+
+<p>要找另外的生产线生产另外味道的鸭脖，也可以轻而易举的就执行了。对于领导只需要知道生产线生产鸭脖，鸭脖有自己的味道就可以了。如果想得到麻辣味鸭脖，只需要更改工厂实现逻辑即可，返回麻辣味鸭脖就可以了。</p>
+
+<p>当然这种方式，我们需要创建更多的工厂具体类，所以也是挺麻烦的，通常我们可以通过自己喜欢的方式来不重复创建工厂类：</p>
+
+<h3 id="实际使用工厂方式">实际使用工厂方式</h3>
+
+<h4 id="反射创建">反射创建</h4>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>
+public interface IProductLineFactory{
+    /**
+     * 抽象工厂方法
+     * @param clz 产品对象类型
+     * @return 具体产品对象
+     */
+    &lt;T extends IDuckNeck&gt; T createDuckNeck(Class&lt;T&gt; clz);
+}
+
+</code></pre>
+</div>
+
+<p>对于具体工厂类，我们可以通过反射获取类的实例：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>public class ConcreteFactory implements IProductLineFactory{
+    public &lt;T extends IDuckNeck&gt; T createDuckNeck(Class&lt;T&gt; clz){
+        IDuckNeck duckneck;
+        try{
+            duckneck=(IDuckNeck)Class.forName(clz.getName()).newInstance();
+        }catch(Exception e){
+        }
+        return duckneck;
+    }
+}
+</code></pre>
+</div>
+
+<p>再来看下测试：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>
+public class Test{
+    public static void main(String[] args){
+        IProductLineFactory factory=new ConcreteFactory();
+        IDuckNeck duckneck=factory.createDuckNeck(NormalTasteDuckNeck.class);
+        duckneck.taste();
+    }
+}
+
+</code></pre>
+</div>
+
+<p>这是一种方式，通过反射就不用反复创建具体工厂了，当然反射效率稍微要低一点，所以还是可以有其他方式实现。</p>
+
+<p>实现方式看具体业务逻辑需求，如果工厂只有一个，可以直接用静态工厂，来去掉抽象工厂类。</p>
+
+<h4 id="静态工厂">静态工厂：</h4>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>public class ConcreteFactory{
+    public static IDuckNeck createDuckNeck(){
+        return new NormalTasteDuckNeck();
+    }
+}
+</code></pre>
+</div>
+
+<p>静态工厂是工厂方式的一种弱化，就直接简化掉了抽象工厂类，如果产品类型不是很多，还可以在抽象工厂类中加入Type类型，来做一个switch取出直接产品类型。</p>
+
+<h2 id="抽象工厂">抽象工厂</h2>
+
+<h3 id="事例-1">事例</h3>
+
+<p>夏天来了，我们都爱喝饮料，比如某快线和某矿泉水。某快线由饮料部分是乳白色。而矿泉水是透明色，某快线盖子是橙色，矿泉水盖子是白色。身体部分均由软塑料瓶组成。</p>
+
+<p>那么换到我们代码世界中来，不就对应了可替换模块不同实现和实现下组成部分的不同，将组成部分抽象,将每一个组成部分看作一个产品。</p>
+
+<h4 id="抽象工厂-1">抽象工厂</h4>
+
+<ul>
+  <li>先定义一个抽象饮料:</li>
+</ul>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>
+public abstract class DrinkFactory{
+    
+    /**
+     * 生产液体
+     * return 液体部分
+     */
+    public abstract ILiquid createLiquid();
+    
+    /**
+     * 生产盖子
+     * return 盖子部分
+     */
+    public abstract ICap createCap();
+    
+    /**
+     * 生产瓶子
+     * 因为两个产品瓶子一样，所以可以Up Method 到父类中，如果子类需要改变则自己重写就好
+     */
+    protect void createBottle(){
+        System.out.println("瓶身是熟料瓶身");
+    }
+}
+
+</code></pre>
+</div>
+
+<ul>
+  <li>液体相关类</li>
+</ul>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>
+public interface ILiquid{
+    void liquid();
+}
+
+public class TransparencyLiquid implements ILiquid{
+    @Override
+    public void liquid(){
+        System.out.println("透明液体");
+    }
+}
+
+public class LacteLiquid implements ILiquid{
+    @Override
+    public void liquid(){
+        System.out.println("乳白色液体");
+    }
+}
+
+</code></pre>
+</div>
+
+<ul>
+  <li>盖子相关类</li>
+</ul>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>public interface ICap{
+    void cap();
+}
+
+public class OrangeCap implements ICap{
+    @Override
+    public void cap(){
+        System.out.println("橙色盖子");
+    }
+}
+
+public class WhiteCap implements ICap{
+    @Override
+    public void cap(){
+        System.out.println("白色盖子");
+    }
+}
+
+</code></pre>
+</div>
+
+<p>声明完了之后，具体工厂就出来了：</p>
+
+<ul>
+  <li>具体工厂类：</li>
+</ul>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>public class XXQX extends DrinkFactory{
+
+    /**
+     * 生产液体
+     * return 液体部分
+     */
+    @Override
+    public ILiquid createLiquid(){
+        return new LacteLiquid();
+    }
+    
+    /**
+     * 生产盖子
+     * return 盖子部分
+     */
+    @Override
+    public ICap createCap(){
+        return new OrangeCap();
+    }
+}
+
+public class XXMineralWater extends DrinkFactory{
+
+    /**
+     * 生产液体
+     * return 液体部分
+     */
+    @Override
+    public ILiquid createLiquid(){
+        return new TransparencyLiquid();
+    }
+    
+    /**
+     * 生产盖子
+     * return 盖子部分
+     */
+    @Override
+    public ICap createCap(){
+        return new WhiteCap();
+    }
+}
+
+</code></pre>
+</div>
+
+<p>测试：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>public class Test{
+    public static void main(String[] args){
+        DrinkFactory factoryMineralWater=new XXMineralWater();
+        factoryMineralWater.createLiquid().liquid();
+        factoryMineralWater.createCap().cap();
+        factoryMineralWater.createBottle();
+        System.out.println("-------");
+        
+        DrinkFactory factoryQX=new XXQX();
+        factoryQX.createLiquid().liquid();
+        factoryQX.createCap().cap();
+        factoryQX.createBottle();
+    }
+}
+
+</code></pre>
+</div>
+<p>就这样就把一个饮料给拆分了，组成部分也为产品，我们也可以抽象出来，当其他饮料需要用到的时候可以直接使用，扩展性更好了。</p>
+
+<p>这里用的抽象类，有一个好处就是提升了公共部分，重构的时候，往往会用到此方式，UP Method。就像这里的瓶身</p>
+
+<h3 id="总结">总结</h3>
+
+<p>例子1是鸭脖，例子2是饮料，其都是工厂生产产品，而产品具体实现交由产品自己实现。在项目中是一个可替换模块（工厂），对应行为也可替换（产品），但实现不同，将组成部分抽象。</p>
+
+<p>工厂模式是完全符合设计原则的，依赖与抽象的架构，将具体操作交由对应的子类完成，有非常好的扩展性。很多一些使扩展性好的设计模式，比如策略，状态等也都能看到工厂模式的影子。<strong>工厂模式不愧为应用最广泛的设计模式</strong></p>
+
+    </div>
+    
+
+  </div>
+</article>
+
+    </div>
+  </main>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', '', 'auto');
+  ga('send', 'pageview');
+</script>
+
+</body>
+</html>
