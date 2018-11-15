@@ -1,34 +1,37 @@
-# Profile information
-name: NXSin
-title: Fresh - Free Jekyll Theme
-description: > # this means to ignore newlines until "baseurl:"
-  博客是为了记录和帮助他人了解。
-permalink: ':title/'
-baseurl: "" # the subpath of your site, e.g. /blog   网站顶部url访问
-url: "artemsheludko.pw" # the base hostname & protocol for your site, e.g. http://example.com
+#version
+version: "1.0"
 
-# Social
-facebook: #Add your Facebook
-twitter: #Add your Twitter
-google-plus: #Add your Google+
-github: #Add your Github
+permalink: /:year/:month/:day/:title/
 
-# Contact form
-email: #your-email@domain.com
+# 站点设置
+title: "NXSin"
+email: nxlittle@gmail.com
+description: "小鬼个人博客"
+keywords: "小鬼"
 
-# Comments
-discus-identifier: # Add your Disqus identifier
+# 用户信息设置
+weibo_username: 
+github_username: NXSin
 
-# Paginate
-paginate: 5
-paginate_path: /page:num/
+# Markdown设置
+kramdown:
+  input:  GFM
+  use_coderay: true
+  coderay:
+    coderay_line_numbers:  nil
 
-# Build settings
-markdown: kramdown
-gems:
-  - jekyll-feed
-  - jekyll-paginate
-exclude:
-  - Gemfile
-  - Gemfile.lock
-include: [_pages]
+
+
+# 地址设置
+baseurl: ""
+url: "http://127.0.0.1:4000"
+
+
+# 分页设置
+paginate: 10
+paginate_path: "page/:num"
+
+#scss设置
+sass:
+    sass_dir: /assets/stylesheet
+    style: :compressed
