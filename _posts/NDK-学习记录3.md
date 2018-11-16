@@ -1,0 +1,86 @@
+---
+
+layout: post
+title: NDK学习记录3
+date: 2018-11-16
+categories: [Android NDK]
+author: 小鬼
+tags: [NDK,Logcat]
+description: C打印日志到Android Logcat
+
+---
+
+咱们打印日志，Android通常是打印到logcat中，Android有自己的一套日志系统，c里面如果调用printf，包括c++中的cout等等都不能打印到logcat中。所以我们需要使用Android提供给我们的日志库来打印到logcat中
+
+1. CMakeLists.txt引入log库：
+
+```
+# 用于定位NDK中的库,比如这里的Log库
+find_library( # Sets the name of the path variable.
+        #变量名取为log-lib
+        log-lib
+
+        # Specifies the name of the NDK library that
+        # you want CMake to locate.
+        #找ndk中的log库，即找ndk中的包为liblog.so
+        log)
+
+# 指定关联到原生库的库
+target_link_libraries( # Specifies the target library.
+        #我们的库,与前面的name保持一致
+        my_native_lib
+
+        # Links the target library to the log library
+        # included in the NDK.
+        #要链接进来的库，如上面指定的path
+        ${log-lib})
+```
+
+2. 使用logcat打印，需要引入系统库头文件：
+
+```
+<android/log.h>
+```
+
+3. 打印日志方法：__android_log_print
+
+参数 | 说明
+---|---
+prio| 日志级别
+tag| 标签
+text| 文本
+fmt|C和C++支持的格式化文本,如果使用这种，那么后面需要再跟一个值
+
+
+通常，将__android_log_print日志打印给定义到常量中来调用，少写点代码。
+
+
+例子代码，如下：
+
+```
+#include <jni.h>
+//日志库
+#include <android/log.h>
+
+#define TAG "LogTest"
+
+//常用的一种方式,通过常量定义好，后面直接使用，就不用每次都打印__android``一长串了
+#define LOGI(...) __android_log_print(ANDROID_LOG_INFO, TAG, __VA_ARGS__)
+
+extern "C"
+JNIEXPORT void JNICALL
+Java_shixin_ndkdemo_MainActivity_testAndroidLog(JNIEnv *env, jobject instance) {
+
+    // 打印日志: 参数：日志级别、TAG、内容，内容中的值
+    __android_log_print(ANDROID_LOG_VERBOSE, TAG, "C 打印日志了");
+    __android_log_print(ANDROID_LOG_INFO, TAG, "11 %d ", 1);
+    __android_log_print(ANDROID_LOG_WARN, TAG, "%s", "what");
+    __android_log_print(ANDROID_LOG_ERROR, TAG, "%d", 2);
+    
+    //使用定义方式来输出
+    LOGI("11111 %d", 344);
+    LOGI("11111 ");
+}
+
+```
+

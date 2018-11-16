@@ -1,0 +1,93 @@
+---
+
+layout: post
+title: NDK学习记录2
+date: 2018-11-16
+categories: [Android NDK]
+author: 小鬼
+tags: NDK
+description: 第一个native方法
+
+---
+
+在前面讲了基础配置，那么接下来开始使用了：
+
+#### 第一个native方法
+
+在第一篇中配置完cmake后，笔者在MainActivity中创建来了一个native方法：
+
+```
+package shixin.ndkdemo;
+
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.widget.TextView;
+
+public class MainActivity extends AppCompatActivity {
+
+    // Used to load the 'native-lib' library on application startup.
+    /**
+     * 引入动态库,这里与cmake中的一致: my_native_lib
+     */
+    static {
+        System.loadLibrary("my_native_lib");
+    }
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        // Example of a call to a native method
+        TextView tv = (TextView) findViewById(R.id.sample_text);
+        tv.setText(intFromJni() + "");
+    }
+    
+    /**
+     * 从jni获取int返回
+     * @return int值
+     */
+    public native int intFromJni();
+}
+```
+
+在创建native方法之后，会提示错误，笔者的AndroidStudio是3.2版本了，支持比较好了，直接像我们平时根据提示自动修复错误一样，它就会创建一个原生方法在cpp文件中了。
+
+比如这里是：native-lib.cpp文件，与cmake配置的代码源文件一样，如果不是你可以手动移动一下到native-lib.cpp中，或者将新的cpp文件也链接到cmake配置文件中，只要能识别到，灵活处理即可。
+
+```
+#include <jni.h>
+
+/**
+ * 自动生成的方法
+ */
+extern "C"
+JNIEXPORT jint JNICALL
+Java_shixin_ndkdemo_MainActivity_intFromJni(JNIEnv *env, jobject instance) {
+
+    jint age = 5;
+    //返回5
+    return age;
+}
+```
+
+最后的执行效果，就是textview显示的“5”
+
+#### 基础知识
+
+咱们编译运行后，c里面的代码是和java一样运行的吗？肯定不是，如果是的话就不用这么大费周章来个jni调用原生了，实际编译后生成的就是我们平时用的很多的so动态库。
+
+##### 一. 原生库
+
+Android中日常我们使用的原生库，都是以so的形式提供的，咱们使用编译后也是so动态库
+
+可以查看下编译成的so，目录：
+
+```
+build/intermediates/cmake/debug/obj
+```
+
+* so 介绍
+> abi ：aplication Binary Interface，前面的arm代表arm平台，v7a,-8a代表对应的CPU架构
+
+编译各个平台使用的是ndk目录下的工具链：Android/sdk/ndk-bundle/toolchains
