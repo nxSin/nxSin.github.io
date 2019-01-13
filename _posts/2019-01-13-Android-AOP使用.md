@@ -3,7 +3,7 @@
 layout: post
 title: Android-AOP
 date: 2019-01-13
-categories: [Android-AOP]
+categories: [其他]
 author: 小鬼
 tags: [AOP]
 description: Android AOP使用介绍
